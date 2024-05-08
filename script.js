@@ -1,15 +1,28 @@
 "use strict";
-let produto = "Livro";
-let preco = 200;
-const carro = {
-    marca: "Audi",
-    portas: 5,
-};
-const barato = preco < 400 ? true : "carro caro dms";
-function somar(a, b) {
-    return a + b;
+// Exercício 1
+function normalizarTexto(texto) {
+    return texto.trim().toLowerCase();
 }
-somar(4, 10);
-console.log(produto);
-console.log(preco);
-console.log(carro);
+console.log(normalizarTexto(' deSiNG de MarcasSSS'));
+// Exercício 2
+const $input = document.querySelector('input');
+const total = localStorage.getItem('total');
+if ($input && total) {
+    $input.value = total;
+    calcularGanho(Number($input.value));
+}
+function calcularGanho(value) {
+    const $p = document.querySelector('p');
+    if ($p) {
+        $p.innerText = `Ganho total: ${value + 100 - value * 0.2}`;
+    }
+}
+function totalMudou() {
+    if ($input) {
+        localStorage.setItem("total", $input.value);
+        calcularGanho(Number($input.value));
+    }
+}
+if ($input) {
+    $input.addEventListener('keyup', totalMudou);
+}
