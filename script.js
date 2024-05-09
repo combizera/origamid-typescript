@@ -1,13 +1,19 @@
 "use strict";
-let total = 200;
-total = "4000";
-function isNumber(value) {
-    if (typeof value === 'number') {
-        console.log('É um número');
-        return true;
+// 1 - Crie uma função chamada toNumber
+// 2 - A função pode receber number | string
+// 3 - Se a função receber um número, retorne um número
+// 4 - Se a função receber uma string, retorne um número
+// 5 - Se ela receber algo diferente, retorne um erro. (throw "value deve ser um número ou uma string")
+function toNumber(value) {
+    if (!(typeof value === "number" || typeof value === "string")) {
+        console.log("Essa informação deveria ser um número ou string");
+    }
+    else if (typeof value === "number") {
+        console.log("Boa, é um número");
+        return;
     }
     else {
-        console.log('Não é um número');
+        console.log("Boa, é uma string");
     }
 }
-console.log(isNumber(200));
+toNumber(20);

@@ -1,15 +1,18 @@
-let total: string | number = 200;
-total = "4000";
+// 1 - Crie uma função chamada toNumber
+// 2 - A função pode receber number | string
+// 3 - Se a função receber um número, retorne um número
+// 4 - Se a função receber uma string, retorne um número
+// 5 - Se ela receber algo diferente, retorne um erro. (throw "value deve ser um número ou uma string")
 
-function isNumber(value: string | number){
-  if(typeof value === 'number'){
-    console.log('É um número');
-    return true;
+function toNumber(value: number | string){
+  if (!(typeof value === "number" || typeof value === "string")){
+    console.log("Essa informação deveria ser um número ou string");
+  } else if(typeof value === "number") {
+    console.log("Boa, é um número");
+    return;
+  } else {
+    console.log("Boa, é uma string");
   }
-  else{
-    console.log('Não é um número');
-  }
-
 }
 
-console.log(isNumber(200));
+toNumber(20);
