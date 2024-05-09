@@ -1,8 +1,13 @@
 "use strict";
-const frase1 = new String('Front End');
-const frase2 = String('Front End');
-const frase3 = "Front End";
-console.log(typeof frase1);
-console.log(frase1);
-console.log(typeof frase2);
-console.log(typeof frase3);
+let total = 200;
+total = "4000";
+function isNumber(value) {
+    if (typeof value === 'number') {
+        console.log('É um número');
+        return true;
+    }
+    else {
+        console.log('Não é um número');
+    }
+}
+console.log(isNumber(200));
