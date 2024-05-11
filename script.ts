@@ -1,12 +1,15 @@
 // Receber os dados da API se o curso for iniciante pinte o titulo de azul, se for avançado pinte de vermelho
 
 interface Curso {
+  nome: string,
+  tags: string[],
   aulas: number,
   gratuito: boolean,
   horas: number,
   nivel: 'iniciante' | 'avancado',
-  nome: string,
-  tags: (string)[],
+  // outra forma de mostrar
+  // nivel: string,
+  idAulas: number[],
 }
 
 async function fetchCursos() {
