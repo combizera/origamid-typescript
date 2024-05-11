@@ -1,4 +1,4 @@
-type Produto = {
+interface Produto {
   nome: string;
   preco: number;
   teclado: boolean;
@@ -35,3 +35,5 @@ function pintarCategoria(categoria: Categorias){
   }
 }
 pintarCategoria('design');
+
+// Em resumo usa-se interface quando vamos definir um objeto e type quando vamos definir algo que não vamos declarar um nome neste objeto como no caso dea linha 30
