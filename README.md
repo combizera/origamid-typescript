@@ -29,3 +29,7 @@ null é um tipo primitivo que representa a ausência de valor. É comum em funç
 ## undefined
 
 undefined representa variáveis/propriedades que foram instanciadas, porém, os seus valores ainda não foram definidos.
+
+## instanceof
+
+Existem funções que retornam diferente tipos de objetos. Com a palavra chave _instaceof_ podemos verificar se um objeto é uam instância (foi construído ou herda) de uma função construtora (class)
