@@ -1,5 +1,19 @@
-function normalizar(txt:any){
-  return txt.trim().toLowerCase();
+const $button = document.querySelector('button');
+
+$button ? console.log('existe') : console.error('null');
+
+$button?.click();
+
+interface Product {
+  nome?: string,
 }
 
-console.log(normalizar(" de sgiN"));
+const jogo: Product = {
+  nome: "LOL",
+}
+
+const livro: Product = {
+}
+
+console.log(jogo.nome?.toLocaleLowerCase());
+console.log(livro.nome);
