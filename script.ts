@@ -1,47 +1,21 @@
-class Produto {
-  nome: string;
-  constructor(nome: string){
-    this.nome = nome;
+// 1 - Selecione o link utilizando o método getElementById
+// 2 - Substitua o href do link (HTMLAnchorElement) de http:// para https://
+
+const $link = <HTMLAnchorElement>document.getElementById('combizera');
+
+function changeLink(){
+  const href = $link.href;
+  console.log(href);
+  if(href.includes("http://")){
+    // return;
+    const hrefSafe = href.replace('http://', 'https://');
+    
+    console.log('Link trocado com sucesso');
+    console.log(hrefSafe);
+  } else {
+    console.error('Não foi possível trocar o link');
+    console.log(href);
   }
 }
 
-const livro = new Produto("A Guerra dos Tronos");
-
-console.log(livro instanceof Produto);
-
-class Livro extends Produto {
-  autor: string;
-  constructor (nome: string, autor: string){
-    super(nome);
-    this.autor = autor;
-  }
-}
-
-class Jogo extends Produto{
-  jogadores: number;
-  constructor (nome: string, jogadores: number){
-    super(nome);
-    this.jogadores = jogadores;
-  }
-}
-
-function buscarProduto(busca: string){
-  if (busca === "Hobbit"){
-    return new Livro('Hobbit', 'J. R. R. Tolkien');
-  }
-  if (busca === "Fortnite"){
-    return new Jogo('Fortnite', 100);
-  }
-  return null;
-}
-
-const produto = buscarProduto("Fortnite");
-
-if(produto instanceof Livro){
-  console.log(produto.autor);
-}
-
-if(produto instanceof Jogo){
-  console.log(produto.jogadores);
-}
-
+changeLink();
