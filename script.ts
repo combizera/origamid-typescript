@@ -1,6 +1,12 @@
-const video = document.querySelector('#videoPrincipal');
-// const video = document.querySelector('video');
+const $links = document.querySelectorAll('.link');
 
-if(video instanceof HTMLVideoElement){
-  console.log(video.volume);
-}
+$links.forEach(($link) => {
+  if($link instanceof HTMLAnchorElement){
+    console.log($link);
+  }
+})
+// Aqui é um array
+const array = [1,2,3];
+
+// Transformamos em array
+const arrayLinks = Array.from($links);
