@@ -14,6 +14,10 @@ Arquivo tsconfig.json
 
 ```
 
+Documentação oficial para ver quais elementos herdam de quem no DOM
+
+[Documentação Mozilla](https://developer.mozilla.org/en-US/docs/Web/API)
+
 ## any
 
 Sempre que possível (pra não dizer sempre), evitar criar variáveis que recebam 'any', pois fica muito vago e quase perde-se o sentido de usar Typescript. Perde-se a segurança e facilidade de uso.
