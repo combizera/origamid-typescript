@@ -1,25 +1,13 @@
 const $button = document.querySelector('button');
 
-function handleClick(event: Event){
-  console.log(event);
-}
-$button?.addEventListener('pointerdown', handleClick);
+function handleClick(event: MouseEvent){
+  const $element = event.currentTarget;
 
-function handleScroll(event: Event){
-  console.log(event);
-}
-
-window.addEventListener('scroll', handleScroll);
-
-function ativarMenu(event: Event){
-  if(event instanceof MouseEvent){
-    console.log(event.pageX);
+  if($element instanceof HTMLElement){
+    console.log($element);
   }
-  if(event instanceof TouchEvent){
-    console.log(event.touches[0].pageX);
-  }
-
 }
 
-document.documentElement.addEventListener('mousedown', ativarMenu);
-document.documentElement.addEventListener('touchstart', ativarMenu);
+// handleClick();
+
+$button?.addEventListener('click', handleClick);

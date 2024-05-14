@@ -60,3 +60,31 @@ const arrayLinks = Array.from($links);
 ## Event e instanceof
 
 Uma função, quando criada para ser executada em diferentes tipos de eventos, deve receber como parâmetro o tipo comum entre elas Event
+
+## this
+
+Dentro de uma função, o this faz referência ao objeto que executou a mesma. No JS o this pode ser passado como o primeiro parâmetro da função, mesmo não sendo necessário informar ele durante a execução.
+
+### atenção
+
+O TS não executa o JS, assim ele não consegue assumir qual será o target ou currentTarget do evento executado. Os elementos são definidos como o tipo EventTarget, pois é o tipo mais comum entre os elementos que podem receber um evento. Ou seja, no TS evitar usar this, preferir o event.currentTarget;
+
+Ao invés disso:
+
+```
+const $button = document.querySelector('button');
+
+function handleClick(this: HTMLButtonElement, event:MouseEvent){
+  console.log(this);
+}
+
+handleClick();
+
+$button?.addEventListener('click', handleClick);
+```
+
+Optar por isso:
+
+```
+
+```
