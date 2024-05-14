@@ -1,6 +1,7 @@
 body{
   font-size: 1.5rem;
   font-family: "Fira Code", monospace;
+  height: 120vh;
 }
 .ul{
   list-style: none;

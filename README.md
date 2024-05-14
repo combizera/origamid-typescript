@@ -56,3 +56,7 @@ const array = [1,2,3];
 // Transformamos em array
 const arrayLinks = Array.from($links);
 ```
+
+## Event e instanceof
+
+Uma função, quando criada para ser executada em diferentes tipos de eventos, deve receber como parâmetro o tipo comum entre elas Event
