@@ -1,30 +1,20 @@
 "use strict";
-// Estado dos elementos
-// menu inativo:
-// class="" em nav
-// aria-expanded="false" em button
-// aria-label="Abrir Menu" em button
-// menu ativo:
-// class="active" em nav
-// aria-expanded="true" em button
-// aria-label="Fechar Menu" em button
-const $button = document.getElementById('btn-mobile');
-const $nav = document.getElementById('nav');
-if ($button instanceof HTMLElement) {
-    let $btnAriaLabel = $button.ariaLabel;
-    let $btnAriaExpanded = $button.ariaExpanded;
-    function handleClick() {
-        $nav?.classList.toggle('active');
-        if ($nav?.classList.contains('active')) {
-            $btnAriaLabel = 'Fechar Menu';
-            $btnAriaExpanded = 'true';
+const btnMobile = document.getElementById('btn-mobile');
+function toggleMenu(event) {
+    const button = event.currentTarget;
+    const nav = document.getElementById('nav');
+    if (button instanceof HTMLElement && nav) {
+        const active = nav.classList.contains('active');
+        if (active) {
+            nav.classList.remove('active');
+            button.setAttribute('aria-expanded', 'false');
+            button.setAttribute('aria-label', 'Abrir Menu');
         }
         else {
-            $btnAriaLabel = 'Abrir Menu';
-            $btnAriaExpanded = 'false';
+            nav.classList.add('active');
+            button.setAttribute('aria-expanded', 'true');
+            button.setAttribute('aria-label', 'Fechar Menu');
         }
-        $button?.setAttribute('aria-label', $btnAriaLabel);
-        $button?.setAttribute('aria-expanded', $btnAriaExpanded);
     }
-    window.addEventListener('click', handleClick);
 }
+btnMobile?.addEventListener('pointerdown', toggleMenu);
