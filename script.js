@@ -9,12 +9,13 @@
 // aria-expanded="true" em button
 // aria-label="Fechar Menu" em button
 const $button = document.getElementById('btn-mobile');
+const $nav = document.getElementById('nav');
 if ($button instanceof HTMLElement) {
     let $btnAriaLabel = $button.ariaLabel;
     let $btnAriaExpanded = $button.ariaExpanded;
     function handleClick() {
-        $button?.classList.toggle('active');
-        if ($button?.classList.contains('active')) {
+        $nav?.classList.toggle('active');
+        if ($nav?.classList.contains('active')) {
             $btnAriaLabel = 'Fechar Menu';
             $btnAriaExpanded = 'true';
         }

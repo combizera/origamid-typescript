@@ -11,6 +11,7 @@
 // aria-label="Fechar Menu" em button
 
 const $button = document.getElementById('btn-mobile');
+const $nav = document.getElementById('nav');
 
 if($button instanceof HTMLElement){
   let $btnAriaLabel = $button.ariaLabel;
@@ -18,9 +19,9 @@ if($button instanceof HTMLElement){
 
   function handleClick(){
   
-    $button?.classList.toggle('active');
+    $nav?.classList.toggle('active');
 
-    if($button?.classList.contains('active')){
+    if($nav?.classList.contains('active')){
       $btnAriaLabel = 'Fechar Menu';
       $btnAriaExpanded = 'true';
     } else {
