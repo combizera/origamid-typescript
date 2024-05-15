@@ -88,3 +88,7 @@ Optar por isso:
 ```
 
 ```
+
+## generic
+
+Um tipo genérico é uma forma de declararmos um parâmetro para a nossa função, classe ou interface. Esse tipo poderá ser indicado no momento do uso da função através de <Tipo>.
