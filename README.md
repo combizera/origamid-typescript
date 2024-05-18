@@ -100,3 +100,15 @@ Um tipo genérico é uma forma de declararmos um parâmetro para a nossa funçã
 ## void
 
 No Js, uma função sem reeturn irá retornar undefined. No TS o retorno é definido como void. Isso evita usos errados como checagens booleans de métodos que não possuem retorno.
+
+## never
+
+O never é utilizado em casos onde a função gera um erro ou termina a aplicação
+
+## overload
+
+Existem funções que retornam diferentes dados dependendo do argumento.
+
+Podemos declarar a interface dessas funções utilizando function overload. Basta declarar a interface antes da definição da mesma, utilizando o mesmo nome.
+
+O overload deve ser compatível com a função original.

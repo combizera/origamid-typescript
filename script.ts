@@ -1,21 +1,29 @@
-function somar(a:number, b: number, c?:number): number {
-  // argumento 'c' é opcional
-  return a + b + (c ? c : 0);
-  // 'c' como elemento ternário, é um if de forma minificada
-}
-
-console.log(somar(3, 4));
-
-function pintarTela(cor: string): void{
-  document.body.style.background = cor;
-
-  // return cor;
-}
-
-pintarTela("tomato");
-
-// if (pintarTela("tomato")) {
-//   console.log("pintou");
-// } else {
-//   console.log("não fez nada");
+// function abortar(mensagem: string):never {
+//   throw new Error(mensagem);
 // }
+// abortar('um erro ocorreu');
+// console.log('tente novamente')
+
+function normalizar(valor: string[]): string[];
+function normalizar(valor: string): string;
+function normalizar(valor: string | string[]): string | string[] {
+  if (typeof valor === "string"){
+    return valor.trim().toLowerCase();
+  } else {
+    return valor.map((item) => item.trim().toLowerCase());
+  }
+}
+
+console.log(normalizar(" DesenVolvimento"));
+console.log(normalizar([" DesenVolvimento", " deSing"]));
+
+function $(seletor: 'a'): HTMLAnchorElement;
+function $(seletor: 'video'): HTMLVideoElement;
+function $(seletor: string): Element | null;
+function $(seletor: string): Element | null {
+  return document.querySelector(seletor);
+}
+
+console.log($('a'));
+console.log($('.btn'));
+console.log(typeof $('a'));
