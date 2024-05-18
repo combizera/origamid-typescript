@@ -1,22 +1,21 @@
 "use strict";
-// function abortar(mensagem: string):never {
-//   throw new Error(mensagem);
-// }
-// abortar('um erro ocorreu');
-// console.log('tente novamente')
-function normalizar(valor) {
-    if (typeof valor === "string") {
-        return valor.trim().toLowerCase();
+// Crie uma função que arredonda um valor passado para cima;
+// A função pode receber string ou number;
+// A função deve retornar o mesmo tipo que ela receber
+function arredondar(valor) {
+    if (typeof valor === 'string') {
+        console.log("Valor informado é uma string, não é possível arredondar");
+        return;
     }
-    else {
-        return valor.map((item) => item.trim().toLowerCase());
+    if (typeof valor === 'number') {
+        let numero = Number.isInteger(valor);
+        if (numero) {
+            console.log(`O número '${valor}' já é inteiro`);
+            return;
+        }
+        let valorAumentado = Math.ceil(valor);
+        console.log("Arredondando para cima...");
+        console.log(`Resultado: ${valorAumentado}`);
     }
 }
-console.log(normalizar(" DesenVolvimento"));
-console.log(normalizar([" DesenVolvimento", " deSing"]));
-function $(seletor) {
-    return document.querySelector(seletor);
-}
-console.log($('a'));
-console.log($('.btn'));
-console.log(typeof $('a'));
+(arredondar(1.0));

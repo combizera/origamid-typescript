@@ -36,7 +36,7 @@ undefined representa variáveis/propriedades que foram instanciadas, porém, os 
 
 ## instanceof
 
-Existem funções que retornam diferente tipos de objetos. Com a palavra chave _instaceof_ podemos verificar se um objeto é uam instância (foi construído ou herda) de uma função construtora (class)
+Existem funções que retornam diferente tipos de objetos. Com a palavra chave _instaceof_ podemos verificar se um objeto é uma instância (foi construído ou herda) de uma função construtora (class)
 
 ## querySelectorAll
 
