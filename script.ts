@@ -1,48 +1,21 @@
-function extractText<Tipo extends HTMLElement> (elemento: Tipo){
-  return {
-  texto: elemento.innerText,
-  elemento, 
-  }
-  
+function somar(a:number, b: number, c?:number): number {
+  // argumento 'c' é opcional
+  return a + b + (c ? c : 0);
+  // 'c' como elemento ternário, é um if de forma minificada
 }
 
-const $link = document.querySelector('a');
+console.log(somar(3, 4));
 
-console.log($link);
+function pintarTela(cor: string): void{
+  document.body.style.background = cor;
 
-if($link){
-  console.log(extractText($link).elemento);
+  // return cor;
 }
 
-// recriando uma função do jquery
+pintarTela("tomato");
 
-function $<Tipo extends Element>(selector: string): Tipo | null{
-  return document.querySelector(selector)
-}
-
-const $button = $<HTMLButtonElement>('button');
-
-console.log($button);
-
-// por querySelector ser amplo de mais e não mostrar claramente oq estamos buscando, podemos definir isso pra ele dessa forma
-
-const $video = document.querySelector<HTMLVideoElement>('.video');
-
-console.log($video?.volume);
-
-async function getData<T>(url: string): Promise<T> {
-  const response = await fetch(url);
-  return await response.json();
-}
-
-interface Notebook {
-  nome: string, 
-  preco: number, 
-}
-
-async function handleData() {
-  const notebook = await getData<Notebook>("https://api.origamid.dev/json/notebook.json");
-  console.log(notebook);
-}
-
-handleData();
+// if (pintarTela("tomato")) {
+//   console.log("pintou");
+// } else {
+//   console.log("não fez nada");
+// }

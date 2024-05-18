@@ -93,6 +93,10 @@ Optar por isso:
 
 Um tipo genérico é uma forma de declararmos um parâmetro para a nossa função, classe ou interface. Esse tipo poderá ser indicado no momento do uso da função através de <Tipo>.
 
-# extends
+## extends
 
 É possível indicar que o tipo genérico deve herdar de uma interface específica com o extends
+
+## void
+
+No Js, uma função sem reeturn irá retornar undefined. No TS o retorno é definido como void. Isso evita usos errados como checagens booleans de métodos que não possuem retorno.
