@@ -1,31 +1,48 @@
-async function fetchProduto() {
-  const response = await fetch('https://api.origamid.dev/json/notebook.json');
+// 1 - Faça um fetch da API: https://api.origamid.dev/json/cursos.json
+// 2 - Defina a interface da API
+// 3 - Crie um Type Guard, que garanta que a API possui nome, horas e tags
+// 4 - Use Type Guards para garantir a Type Safety do código
+// 5 - Preencha os dados da API na tela.
+
+async function fetchCurso() {
+  const response = await fetch('https://api.origamid.dev/json/cursos.json');
   const json = await response.json();
-  handleProduto(json);
+  handleCurso(json);
 }
 
-fetchProduto();
-
-interface Produto {
-  nome: string;
-  preco: number;
+interface Curso {
+  nome: string,
+  horas: number,
+  tags: string[],
 }
 
-function isProduto(value: unknown): value is Produto {
+fetchCurso();
+
+function isCurso(curso: unknown): curso is Curso {
   if(
-    value &&
-    typeof value === 'object' &&
-    'nome' in value &&
-    'preco' in value
-  ) {
+    curso &&
+    typeof curso === 'object' &&
+    'nome' in curso &&
+    'horas' in curso &&
+    'tags' in curso
+  ){
     return true;
-  } else{
+  } else {
+    console.log('algo esta errado');
     return false;
   }
 }
 
-function handleProduto(data: Produto){
-  if (isProduto(data)){
-    console.log(data);
+function handleCurso(data: unknown){
+  if (Array.isArray(data)){
+    data.filter(isCurso).forEach((item) => {
+      document.body.innerHTML += `
+        <div>
+          <h2>${item.nome}</h2>
+          <p>${item.horas}</p>
+          <p>${item.tags.join(', ')}</p>
+        </div>
+      `
+    });
   }
 }
