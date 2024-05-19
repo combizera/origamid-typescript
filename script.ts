@@ -1,16 +1,27 @@
-function typeGuard(value: unknown) {
-  if (typeof value === 'string') {
-    return value.toLowerCase();
+async function fetchCursos() {
+  const response = await fetch('https://api.origamid.dev/json/cursos.json');
+  const json = await response.json();
+  handleCursos(json);
+}
+fetchCursos();
+
+function handleCursos(data: unknown) {
+  if (data instanceof Array) {
+    console.log('É instância de Array');
   }
-  if (typeof value === 'number') {
-    return value.toFixed();
-  }
-  if (value instanceof HTMLElement) {
-    return value.innerText;
+  if (Array.isArray(data)) {
+    console.log('É array');
   }
 }
 
-console.log(typeGuard('Origamid'));
-console.log(typeGuard(200));
-console.log(typeGuard(document.body));
+function isString(value: unknown): value is string{
+  return typeof value === 'string';
+}
 
+function handleData(data: unknown){
+  if(isString(data)){
+    data.toLowerCase();
+  }
+}
+
+handleData(210);
