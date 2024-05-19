@@ -1,4 +1,4 @@
-function typeGuard(value: any) {
+function typeGuard(value: unknown) {
   if (typeof value === 'string') {
     return value.toLowerCase();
   }
@@ -10,38 +10,7 @@ function typeGuard(value: any) {
   }
 }
 
-typeGuard('Origamid');
-typeGuard(200);
-typeGuard(document.body);
-
-const obj = {
-  nome: 'ygor',
-}
-
-if ("preco" in obj){
-  console.log("sim");
-}
-
-async function fetchProduto() {
-  const response = await fetch('https://api.origamid.dev/json/notebook.json');
-  const json = await response.json();
-  handleProduto(json);
-}
-
-interface Produto {
-  nome: string,
-  total: number,
-}
-
-function handleProduto(data: Produto){
-  console.log(data);
-  if ('total' in data){
-    document.body.innerHTML += `
-    <p>Nome: ${data.nome}</p>
-    <p>Preço: ${data.total}</p>
-    ` 
-  } 
-}
-
-fetchProduto();
+console.log(typeGuard('Origamid'));
+console.log(typeGuard(200));
+console.log(typeGuard(document.body));
 

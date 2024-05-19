@@ -118,3 +118,11 @@ O overload deve ser compatível com a função original.
 O Type Guard(defesa) garante a Type Safety (segurança) do dado dentro do bloco condicional. Esse processo é chamdo de Type Narrowing (estreitamento).
 
 O TS faz Control Flow para entender qual o dado dentro da condicional.
+
+## Unknown
+
+Indica que não sabemos o tipo de dados que pode ser passado. Diferente do any, o unknown só irá permitir o uso de métodos quando a Type Safety estiver garantida.
+
+### uso
+
+Vamos usar o unknown bem mais que o any pq ele meio que força vc a passar um typeguard para o elemento, deixando o código menos suscetível a erros.
