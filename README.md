@@ -112,3 +112,9 @@ Existem funções que retornam diferentes dados dependendo do argumento.
 Podemos declarar a interface dessas funções utilizando function overload. Basta declarar a interface antes da definição da mesma, utilizando o mesmo nome.
 
 O overload deve ser compatível com a função original.
+
+## Guard, Safety e Narrowing
+
+O Type Guard(defesa) garante a Type Safety (segurança) do dado dentro do bloco condicional. Esse processo é chamdo de Type Narrowing (estreitamento).
+
+O TS faz Control Flow para entender qual o dado dentro da condicional.

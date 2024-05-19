@@ -1,14 +1,36 @@
 "use strict";
-// Crie uma função que arredonda um valor passado para cima;
-// A função pode receber string ou number;
-// A função deve retornar o mesmo tipo que ela receber
-function arredondar(valor) {
-    if (typeof valor === 'number') {
-        return Math.ceil(valor);
+function typeGuard(value) {
+    if (typeof value === 'string') {
+        return value.toLowerCase();
     }
-    else {
-        return Math.ceil(Number(valor)).toString();
+    if (typeof value === 'number') {
+        return value.toFixed();
+    }
+    if (value instanceof HTMLElement) {
+        return value.innerText;
     }
 }
-console.log(arredondar(200.32));
-console.log(arredondar('200.32'));
+typeGuard('Origamid');
+typeGuard(200);
+typeGuard(document.body);
+const obj = {
+    nome: 'ygor',
+};
+if ("preco" in obj) {
+    console.log("sim");
+}
+async function fetchProduto() {
+    const response = await fetch('https://api.origamid.dev/json/notebook.json');
+    const json = await response.json();
+    handleProduto(json);
+}
+function handleProduto(data) {
+    console.log(data);
+    if ('total' in data) {
+        document.body.innerHTML += `
+    <p>Nome: ${data.nome}</p>
+    <p>Preço: ${data.total}</p>
+    `;
+    }
+}
+fetchProduto();
