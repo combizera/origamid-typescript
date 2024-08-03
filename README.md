@@ -126,3 +126,29 @@ Indica que não sabemos o tipo de dados que pode ser passado. Diferente do any, 
 ### uso
 
 Vamos usar o unknown bem mais que o any pq ele meio que força vc a passar um typeguard para o elemento, deixando o código menos suscetível a erros.
+
+## as
+
+Com o Type Assertion é possível "indicar" ao TS qual o tipo de dado esperado com a palavra-chave `as`. Só é possível indicar tipos que possuam relação com o tipo original.
+
+Evitar ao máximo o uso de Type Assertion, pos a segurança (Type Safety) é perdida quando indicamos algo que nem sempre será verdade.
+
+### !non-null operator
+
+Indica que não existe a possibilidade do dado ser null. Cuidado com o uso, pois pode levar a erros no runtime. Use apenas se tiver certeza.
+
+Esse é um operador de TS `!.` e não de JS como o `?.`. Durante a compilação ele será removido.
+
+### Outras sintaxes
+
+```
+const video1 = document.querySelector('.player') as HTMLVideoElement;
+const video2 = <HTMLVideoElement>document.querySelector('.player');
+const video3 = document.querySelector<HTMLVideoElement>('.player');
+const video4 = document.querySelector('.player');
+
+video1.volume;
+video2.volume;
+video3?.volume;
+(video4 as HTMLVideoElement).volume
+```
