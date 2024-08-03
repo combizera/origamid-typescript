@@ -152,3 +152,7 @@ video2.volume;
 video3?.volume;
 (video4 as HTMLVideoElement).volume
 ```
+
+## Destructuring
+
+Durante a desestruturação é necessário indicar o tipo exato do dado esperado pelo TS. Ex: um `currentTarget` pode ser `EventTarget | null`

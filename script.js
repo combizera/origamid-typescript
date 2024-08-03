@@ -1,12 +1,18 @@
 "use strict";
-async function fetchProduto() {
-    const response = await fetch('https://api.origamid.dev/json/notebook.json');
-    return response.json();
+const { body } = document;
+console.log(body);
+function handleData({ nome, preco }) {
+    nome.includes('book');
+    preco.toFixed();
 }
-async function handleProduto() {
-    const produto = await fetchProduto();
-    produto.nome;
+handleData({
+    nome: "Notebook",
+    preco: 2500
+});
+function handleClick({ currentTarget, pageX }) {
+    if (currentTarget instanceof HTMLElement) {
+        currentTarget.innerHTML = `<h1>Mouse click em x: ${pageX}</h1>`;
+    }
+    console.log(pageX);
 }
-handleProduto();
-const video = document.querySelector('video');
-video.volume;
+document.documentElement.addEventListener('click', handleClick);

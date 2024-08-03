@@ -1,19 +1,24 @@
-interface Produto {
-  nome: string,
-  preco: number,
+const {body}: {body: HTMLElement} = document;
+
+console.log(body);
+
+function handleData({nome, preco}: {nome: string; preco: number}){
+  nome.includes('book');
+  preco.toFixed();
 }
 
-async function fetchProduto() {
-  const response = await fetch('https://api.origamid.dev/json/notebook.json');
-  return response.json() as Promise<Produto>;
+handleData({
+  nome: "Notebook",
+  preco: 2500
+});
+
+
+
+function handleClick( {currentTarget, pageX}: {currentTarget: EventTarget | null; pageX: number}){
+  if(currentTarget instanceof HTMLElement){
+    currentTarget.innerHTML = `<h1>Mouse click em x: ${pageX}</h1>`
+  }
+  console.log(pageX);
 }
 
-async function handleProduto() {
-  const produto = await fetchProduto();
-  produto.nome;
-}
-
-handleProduto();
-
-const video = document.querySelector('video')!;
-video.volume;
+document.documentElement.addEventListener('click', handleClick);
